@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49669/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49669/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49669/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService_ListarArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarArt" />
+  </wsdl:message>
+  <wsdl:message name="IService_ListarArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ListarDisco_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDisco" />
+  </wsdl:message>
+  <wsdl:message name="IService_ListarDisco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarDiscoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ListarCan_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCan" />
+  </wsdl:message>
+  <wsdl:message name="IService_ListarCan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarArt" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarDisco_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDisco" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarDisco_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiscoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarCancion_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCancion" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarCancion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarCancionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarDiscoArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiscoArt" />
+  </wsdl:message>
+  <wsdl:message name="IService_BuscarDiscoArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscarDiscoArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BusquedaDis_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaDis" />
+  </wsdl:message>
+  <wsdl:message name="IService_BusquedaDis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaDisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_BusquedaArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaArt" />
+  </wsdl:message>
+  <wsdl:message name="IService_BusquedaArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BusquedaArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarArt_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarArt" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarArt_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarArtResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarDis_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarDis" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarDis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarDisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarCan_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCan" />
+  </wsdl:message>
+  <wsdl:message name="IService_ActualizarCan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarCanResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService">
+    <wsdl:operation name="ListarArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ListarArt" message="tns:IService_ListarArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ListarArtResponse" message="tns:IService_ListarArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisco">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ListarDisco" message="tns:IService_ListarDisco_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ListarDiscoResponse" message="tns:IService_ListarDisco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ListarCan" message="tns:IService_ListarCan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ListarCanResponse" message="tns:IService_ListarCan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BuscarArt" message="tns:IService_BuscarArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BuscarArtResponse" message="tns:IService_BuscarArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDisco">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BuscarDisco" message="tns:IService_BuscarDisco_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BuscarDiscoResponse" message="tns:IService_BuscarDisco_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCancion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BuscarCancion" message="tns:IService_BuscarCancion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BuscarCancionResponse" message="tns:IService_BuscarCancion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiscoArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BuscarDiscoArt" message="tns:IService_BuscarDiscoArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BuscarDiscoArtResponse" message="tns:IService_BuscarDiscoArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaDis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BusquedaDis" message="tns:IService_BusquedaDis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BusquedaDisResponse" message="tns:IService_BusquedaDis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/BusquedaArt" message="tns:IService_BusquedaArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/BusquedaArtResponse" message="tns:IService_BusquedaArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarArt">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ActualizarArt" message="tns:IService_ActualizarArt_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ActualizarArtResponse" message="tns:IService_ActualizarArt_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ActualizarDis" message="tns:IService_ActualizarDis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ActualizarDisResponse" message="tns:IService_ActualizarDis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/ActualizarCan" message="tns:IService_ActualizarCan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/ActualizarCanResponse" message="tns:IService_ActualizarCan_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarArt">
+      <soap:operation soapAction="http://tempuri.org/IService/ListarArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarDisco">
+      <soap:operation soapAction="http://tempuri.org/IService/ListarDisco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCan">
+      <soap:operation soapAction="http://tempuri.org/IService/ListarCan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarArt">
+      <soap:operation soapAction="http://tempuri.org/IService/BuscarArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDisco">
+      <soap:operation soapAction="http://tempuri.org/IService/BuscarDisco" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarCancion">
+      <soap:operation soapAction="http://tempuri.org/IService/BuscarCancion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarDiscoArt">
+      <soap:operation soapAction="http://tempuri.org/IService/BuscarDiscoArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaDis">
+      <soap:operation soapAction="http://tempuri.org/IService/BusquedaDis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusquedaArt">
+      <soap:operation soapAction="http://tempuri.org/IService/BusquedaArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarArt">
+      <soap:operation soapAction="http://tempuri.org/IService/ActualizarArt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDis">
+      <soap:operation soapAction="http://tempuri.org/IService/ActualizarDis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCan">
+      <soap:operation soapAction="http://tempuri.org/IService/ActualizarCan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="BasicHttpBinding_IService" binding="tns:BasicHttpBinding_IService">
+      <soap:address location="http://localhost:49669/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
