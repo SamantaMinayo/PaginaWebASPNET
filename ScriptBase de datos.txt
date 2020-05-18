@@ -1,0 +1,101 @@
+CREATE DATABASE TIENDAMUSICA1
+GO
+CREATE TABLE [dbo].[TblArtista] (
+    [IdA]             INT        IDENTITY (1, 1) NOT NULL,
+    [Nombre]          NCHAR (20) NULL,
+    [Apellido]        NCHAR (20) NULL,
+    [NombreArtistico] NCHAR (20) NULL,
+    [Nacionalidad]    NCHAR (20) NULL,
+    [Sumatoria]       INT        NULL,
+    [Puntuación]      INT        NULL,
+    CONSTRAINT [PK_TblArtista] PRIMARY KEY CLUSTERED ([IdA] ASC)
+)
+GO
+CREATE TABLE [dbo].[TblDisco] (
+    [IdD]             INT        IDENTITY (1, 1) NOT NULL,
+    [IdA]             INT        NOT NULL,
+    [NombreDisco]     NCHAR (20) NULL,
+    [Aniopublicacion] INT        NULL,
+    [Sumatoria]       INT        NULL,
+    [Puntuación]      INT        NULL,
+    PRIMARY KEY CLUSTERED ([IdD] ASC),
+    FOREIGN KEY ([IdA]) REFERENCES [dbo].[TblArtista] ([IdA]) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+CREATE TABLE [dbo].[TblCanciones] (
+    [IdC]    INT        IDENTITY (1, 1) NOT NULL,
+    [IdD]    INT        NULL,
+    [Nombre] NCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([IdC] ASC),
+    FOREIGN KEY ([IdD]) REFERENCES [dbo].[TblDisco] ([IdD]) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+CREATE TABLE [dbo].[TblUsuarios] (
+    [IdU]         INT          IDENTITY (1, 1) NOT NULL,
+    [Nombre]      VARCHAR (20) NULL,
+    [Apellido]    VARCHAR (20) NULL,
+    [Usuario]     VARCHAR (20) NULL,
+    [Contrasenia] VARCHAR (20) NULL,
+    PRIMARY KEY CLUSTERED ([IdU] ASC)
+)
+GO
+CREATE TABLE [dbo].[TblDiscosCalificados] (
+    [IdDC]       INT IDENTITY (1, 1) NOT NULL,
+    [IdD]        INT NOT NULL,
+    [IdU]        INT NOT NULL,
+    [Puntuación] INT NULL,
+    PRIMARY KEY CLUSTERED ([IdDC] ASC),
+    FOREIGN KEY ([IdD]) REFERENCES [dbo].[TblDisco] ([IdD]) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY ([IdU]) REFERENCES [dbo].[TblUsuarios] ([IdU]) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+CREATE TABLE [dbo].[TblArtistasCalificados] (
+    [IdAC]       INT IDENTITY (1, 1) NOT NULL,
+    [Puntuación] INT NOT NULL,
+    [IdU]        INT NOT NULL,
+    [IdA]        INT NOT NULL,
+    PRIMARY KEY CLUSTERED ([IdAC] ASC),
+    FOREIGN KEY ([IdU]) REFERENCES [dbo].[TblUsuarios] ([IdU]) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY ([IdA]) REFERENCES [dbo].[TblArtista] ([IdA]) ON DELETE CASCADE ON UPDATE CASCADE
+)
+GO
+Insert INTO TblUsuarios VALUES('Samanta','Minayo','sami','1234')
+Insert INTO TblUsuarios VALUES('Victoria','Camacho','vicky','1234')
+Insert INTO TblUsuarios VALUES('Alexandra','Gualotuña','alex','1234')
+Insert INTO TblUsuarios VALUES('Elisabet','Perez','eli','1234')
+Insert INTO TblUsuarios VALUES('Tobias','Mena','tobi','1234')
+Insert INTO TblUsuarios VALUES('Martin','Paz','martin','1234')
+Insert INTO TblUsuarios VALUES('Damaris','Pillajo','dama','1234')
+Insert INTO TblUsuarios VALUES('Julia','Cando','jul','1234')
+
+
+Insert INTO TblArtista VALUES('Gilberto','Santarosa','Gilberto Santarosa','Puertoriqueño',0,0)
+Insert INTO TblArtista VALUES('Marco','Muniz','Marck Antoni','Puertoriqueño',0,0)
+Insert INTO TblArtista VALUES('Miguel','Embroni','Enanitos Verdes','Argentinos',0,0)
+Insert INTO TblArtista VALUES('Shakira','Mebarak','Shakira','colombiana',0,0)
+
+Insert INTO TblDisco VALUES(1,'Irrepetible',2010,0,0)
+Insert INTO TblDisco VALUES(1,'Intenso',2001,0,0)
+Insert INTO TblDisco VALUES(2,'Amar sin mentirs',2004,0,0)
+Insert INTO TblDisco VALUES(2,'Todo a su tiempo',1995,0,0)
+Insert INTO TblDisco VALUES(3,'Contra tiempo',1986,0,0)
+Insert INTO TblDisco VALUES(3,'Igual que ayer',1993,0,0)
+Insert INTO TblDisco VALUES(4,'Pies descalzos',1995,0,0)
+Insert INTO TblDisco VALUES(4,'Sale el sol',2010,0,0)
+
+Insert INTO TblCanciones VALUES(1,'Vivir sin ti')
+Insert INTO TblCanciones VALUES(1,'La ventana')
+Insert INTO TblCanciones VALUES(2,'Mentria')
+Insert INTO TblCanciones VALUES(2,'De colores')
+Insert INTO TblCanciones VALUES(3,'Ahora quien')
+Insert INTO TblCanciones VALUES(3,'Escapemonos')
+Insert INTO TblCanciones VALUES(4,'Hasta Ayer')
+Insert INTO TblCanciones VALUES(4,'Te amare')
+Insert INTO TblCanciones VALUES(5,'La luz del rio')
+Insert INTO TblCanciones VALUES(5,'La muralla verde')
+Insert INTO TblCanciones VALUES(6,'Amigos')
+Insert INTO TblCanciones VALUES(6,'Era un angel')
+Insert INTO TblCanciones VALUES(7,'La bicicleta')
+Insert INTO TblCanciones VALUES(7,'Deja vu')
+Insert INTO TblCanciones VALUES(8,'Antologia')
+Insert INTO TblCanciones VALUES(8,'Estoy Aqui')
